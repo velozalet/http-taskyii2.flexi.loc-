@@ -1,0 +1,164 @@
+/*___ */
+
+/*___/ */
+
+/* _________________________flash message */
+p.flash_msg {
+    position: absolute;
+    top: 12%;
+    display: block;
+    margin-left: 40%;
+}
+p.flash_msg > span.text-success {
+    outline: 1px solid green;
+    padding: 5px 10px;
+}
+/* ________________________/flash message */
+
+/* _________________________asterisk marker for the required fields Form */
+form#login-form-user label:after { /* for the Form 'Login in' */
+    content: " *";
+    color: red;
+}
+form#registr-form-user .form-group  label:after {  /* for the Form 'SignUp'*/
+    content: " *";
+    color: red;
+}
+/* ________________________/asterisk marker for the required fields Form */
+
+/* ______Triangle for NavBar to attack the standard Bootstrap menu (Properties of Bootstrap-2.3.2) */
+.navbar .nav > li > .dropdown-menu:before { /**/
+    position: absolute;
+    top: -11px; /*-7px*/
+    left: 9px;  /*9px*/
+    display: inline-block;
+    border-right: 11px solid transparent;  /*7px......*/
+    border-bottom: 11px solid #ccc;       /*7px......*/
+    border-left: 11px solid transparent; /*7px......*/
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+}
+.navbar .nav > li > .dropdown-menu:after {  /* */
+    position: absolute;
+    top: -10px;  /*-6px*/
+    left: 10px;  /* 10px*/
+    display: inline-block;
+    border-right: 10px solid transparent;  /*6px......*/
+    border-bottom: 10px solid #F8F8F8; /*6px..../ Сделать тут цветом, который стоит и у самого списка выпадающего меню*/
+    border-left: 10px solid transparent;  /*6px......*/
+    content: '';
+}
+/*____/Triangle for NavBar to attack the standard Bootstrap menu (Properties of Bootstrap-2.3.2) */
+
+
+#w2,#w4 {
+    /* right: 0; */
+    left: 0;
+}
+
+
+/* ______Gallery page */
+div.img-1 {
+    background-image: url("../uploads/fullimage1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 360px;
+}
+
+div[class^="image-item-"] { /*not work?*/
+    overflow: auto;
+    cursor: pointer;
+    margin-bottom: 10px !important;
+}
+
+img[class^="img-gallery-"] {
+    height: 131px;
+    width: 360px;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+img[class^="img-gallery-"]:hover {
+    outline: 2px solid #FF0000;
+    cursor: pointer;
+}
+
+img.popup_img {
+    vertical-align: middle;
+    width: 100%;
+}
+/* ______/Gallery page */
+
+
+/*__________________________Tabs with information content in Home pge */
+.nav-tabs {
+    border-bottom: 1px solid #B7B6B6;
+}
+.nav-tabs > li > a:hover {
+    background-color: #fff;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #B7B6B6;
+    border-bottom-color: transparent;
+}
+div.my_tab_content {
+    background-color: #fff;
+    padding: 10px 12px 5px 12px;
+    border-left: 1px solid #B7B6B6;
+    border-right: 1px solid #B7B6B6;
+    border-bottom: 1px solid #B7B6B6;
+}
+span.span_for_title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+p.description_txt {
+    color: #0f0f0f;
+    text-indent: 1.5em;
+    text-align: justify;
+}
+
+div#tab2 > img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    width: 100%;
+}
+/*_________________________/Tabs with information content in Home pge */
+
+
+/*_______________Accordion effect with information content in Home pge */
+div#accordion { /* пока размер экрана > 500px этот блок с "Accordion effect" скрыт и показывается "Tabs with information content in Home pge" */
+    display: none;
+}
+/*______________/Accordion effect with information content in Home pge */
+
+
+
+
+/***********************************************************************
+                               MEDIA QUERIES:
+***********************************************************************/
+
+/*
+  CHANGE DOM with CONTENT in "Home pge"
+*/
+@media (max-width: 500px) {  /* скрываем этот блок,который отрабатывал до размера > 500px */
+    div.tabbable {
+        display: none;
+    }
+    div#accordion { /* поеказываем этот блок,вместо div.tabbable */
+        display: block;
+    }
+    #collapse2 > div[class="panel-body"] > img {
+        width: 100%;
+    }
+}  /*___/@media (max-width: 500px) */

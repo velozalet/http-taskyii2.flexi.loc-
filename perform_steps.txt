@@ -1,0 +1,62 @@
+_________________________________УСТАНОВКА COMPOSER и установка Yii2 через него:
+1) sudo apt-get update
+      может выдать message: E: Некоторые индексные файлы не скачались. Они были проигнорированы или вместо них были использованы старые версии.
+			  E: Работа dpkg прервана, вы должны вручную запустить «sudo dpkg --configure -a» для устранения проблемы. ТОГДА делаем: 
+2) sudo dpkg --configure -a
+3) curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+      может выдать message: Программа 'curl' на данный момент не установлена. Вы можете установить её, выполнив: sudo apt-get install curl. ТОГДА делаем: 
+4) sudo apt-get install curl
+5) curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+	должно быть что-то вроде,значит установили успешно: Composer successfully installed to: /usr/local/bin/composer                                                                                                                                    
+				  Use it: php /usr/local/bin/composer 
+				  
+проверить установку можно следующей коммандой:
+composer
+      должна вывалиться вся информация с описанием,опциями и доступными коммандами Composer
+      
+6) Можно обновить Composer:
+sudo composer self-update
+7) Устанавливает composer asset plugin,кот.позволяет управлять зависимостями пакетов bower и npm через Composer:
+composer global require "fxp/composer-asset-plugin:~1.1.1"
+8) Устанавливает Yii2 в директорию basic. 
+composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+(!) Но эту последнюю команду нужно выполнять перейдя в папку со всеми проектами(у меня она лежит /var/www/),включаю пустую предаврительно сделанную
+    под проект с Yii2,папку с будующим проектом [yii2.loc].
+    Теперь,перейдя в эту [www] открываем консоль в этой папке(F4) и там прописываем,но уже,соответственно так,меняя basic на свою папку:
+    composer create-project --prefer-dist yiisoft/yii2-app-basic yii2.loc
+(!)
+(!)
+  Note: В процессе установки Composer может запросить логин и пароль от Github потому как у API Github имеется ограничение на количество запросов. 
+  Это нормально потому как Composer в процессе работы запрашивает у Github большое количество информации для каждого пакета. Вход на Github повышает
+  ограничение по запросам API и Composer может продолжить свою работу.
+  А также запросить token от аккаунта. Для этого заходим к себе на аккаунт, жмем на своем профиле "Settings"-> попадаем в "Personal settings" и там, 
+  жмем "Personal access tokens, выбираем "Generate new token" и вводим в окно(Token description) для чего нам нужен ключ token(например пишем create local 
+  project Yii2) и нажимаем кнопку получить его. Должны получить ключ в виде: 88c97d17a03949d8142004be9eed02e2b60eddcd ,кот.вставляем,в консоль ждущая
+  его и ENTER -> установка должна продолжиться.
+(!)
+
+9) Теперь делаем все,что нужно в плане прописывания хостов для проекта, даем разрешения всей папке и его содержимому и перезапускаем apache.
+10) Пробуем приложение в действии,вбиваем в браузер http://yii2.loc
+Вы должны увидеть страницу приветствия «Congratulations!». Если нет — проверьте требования Yii одним из способов:
+
+Браузером перейдите по адресу http://localhost/basic/requirements.php
+Или выполните команду в консоли:
+cd basic
+php requirements.php
+
+Для корректной работы фреймворка вам необходима установка PHP,соответствующая его мин.требованиям. Основное требование — PHP версии 5.4 и выше.
+Если ваше приложение работает с базой данных,необходимо установить расширение PHP PDO и соответствующий драйвер(например, pdo_mysql для MySQL).
+
+
+_______________________AUTORISATION & IDENTIFICATION USERS:
+1) создаем БД и таблицы,в частности табл. 'users'
+2) прописываем настройки и доступы к ней: /var/www/taskyii2.flexi.loc/config/db.php
+3) делаем нормальные ссылки в URL браузера тут: /var/www/taskyii2.flexi.loc/config/web.php
+
+_______________________GALLERY(ALBUM):
+1) создаем таблицу 'album' для хранения ссылок на изображения для Галлереи(Альбома).
+2) создаем папку uploads для загрузки в нее изображений,которые нужно. Создаем ее по пути: /var/www/taskyii2.flexi.loc/web/uploads
+ и ложим туда для примера 1 картинку: /web/uploads/fullimage1.jpg
+  <img src="<?=$_SERVER['HTTP_HOST'] ?>/web/uploads/fullimage1.jpg" alt="eeeee">
+
+_______________________________:

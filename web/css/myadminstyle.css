@@ -1,0 +1,17 @@
+/*______________________________________/admin/user: */
+div.user-search > form > div[class^="form-group field-usersearch-"] {
+    margin-bottom: -25px !important;
+}
+
+/*______________________________________/admin/album: */
+div.album-search> form > div[class^="form-group field-albumsearch-"] {
+    margin-bottom: -25px !important;
+}
+div.field-album-file > label[for="album-file"] > span.label_upload_img {
+    color:green;
+    font-style: italic;
+}
+div.album-form > form > div.form-group.field-album-create.required,
+div.album-form > form > div.form-group.field-album-src.required {
+    display: none;
+}
