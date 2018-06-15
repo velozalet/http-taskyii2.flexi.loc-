@@ -102,7 +102,7 @@ return [
 - Refer to the README in the `tests` directory for information specific to basic application tests.
 ==========================================
 
-DESCRIPTION THIS PROJECT:
+**DESCRIPTION THIS PROJECT:**
 
 - Yii2(basic version);
 - авторизация/регистрация работающая без перезагрузки страницы;
