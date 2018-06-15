@@ -100,3 +100,10 @@ return [
 - Yii won't create the database for you, this has to be done manually before you can access it.
 - Check and edit the other files in the `config/` directory to customize your application as required.
 - Refer to the README in the `tests` directory for information specific to basic application tests.
+============================================================================================================
+DESCRIPTION THIS PROJECT:
+Yii2
+- авторизация/регистрация работающая без перезагрузки страницы;
+- Галлерея и отображение ее на фронтенд части сайта - основной онтент и функционал приложения. Задумывался как сайт фотографа.
+- Есть Админ модуль с возможностью Админом загружать изображения в галлерею;
+- Только зарегистрированный и,соответственно авторизованный Юзер может видеть Галлерею.
